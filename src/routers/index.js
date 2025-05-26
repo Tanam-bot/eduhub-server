@@ -9,10 +9,10 @@ const moduleRouters = [
     route: UserRoutes,
   },
 
-  // {
-  //   path: "/auth",
-  //   route: AuthRouter,
-  // },
+  {
+    path: "/auth",
+    route: AuthRouter,
+  },
 ];
 moduleRouters.forEach((route) => router.use(route.path, route.route));
 
