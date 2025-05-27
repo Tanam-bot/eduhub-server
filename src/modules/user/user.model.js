@@ -14,17 +14,24 @@ const userSchema = new Schema(
     photoUrl: {
       type: String,
     },
+    blood: {
+      type: String,
+    },
     varsityName: {
       type: String,
-      required: true,
     },
     departmentName: {
       type: String,
-      required: true,
     },
     password: {
       type: String,
       required: true,
+    },
+    Phone: {
+      type: String,
+    },
+    Address: {
+      type: String,
     },
     isDeleted: {
       type: Boolean,

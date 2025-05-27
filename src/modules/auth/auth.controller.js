@@ -1,9 +1,9 @@
 import { LoginUser } from "./auth.service.js";
 
 export const createLoginUser = async (req, res, next) => {
+  console.log(req.body);
   try {
     const result = await LoginUser(req.body);
-    console.log("result", result);
     res.status(200).json({
       success: true,
       message: "Login successful",

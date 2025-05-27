@@ -3,6 +3,7 @@ import {
   createUser,
   deleteUser,
   getAllUser,
+  getThoseBloodDonner,
   updateUser,
 } from "./user.controller.js";
 
@@ -12,6 +13,8 @@ route.post("/create-user", createUser);
 
 // this part only see the admin and the manager
 route.get("/get-all-users", getAllUser);
+
+route.get("/get-all-bloodDonors", getThoseBloodDonner);
 
 route.patch("/:userId", updateUser);
 

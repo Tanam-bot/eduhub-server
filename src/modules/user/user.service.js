@@ -1,4 +1,3 @@
-import bcrypt from "bcrypt";
 import { User } from "./user.model.js";
 
 export const createUserIntoDB = async (userData) => {
@@ -10,20 +9,26 @@ export const createUserIntoDB = async (userData) => {
 
   // Hash the password
 
-  const newUser = await User.create({
-    name,
-    email,
-    password,
-    phone,
-    address,
-  });
-
+  const newUser = await User.create(userData);
   return newUser;
 };
 
 export const getAllUserFormDB = async () => {
   const allUser = await User.find();
   return allUser;
+};
+
+export const getThoseBloodDonnerFromDB = async () => {
+  try {
+    const bloodDonors = await User.find({
+      blood: { $exists: true, $ne: null, $ne: "" },
+      isDeleted: false,
+    });
+    return bloodDonors;
+  } catch (error) {
+    console.error("Error fetching blood donors:", error);
+    throw error;
+  }
 };
 
 export const updateUserInDB = async (id, updatedData) => {

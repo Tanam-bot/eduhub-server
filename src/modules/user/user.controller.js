@@ -2,6 +2,7 @@ import {
   createUserIntoDB,
   deleteUserFromDB,
   getAllUserFormDB,
+  getThoseBloodDonnerFromDB,
   updateUserInDB,
 } from "./user.service.js";
 
@@ -22,6 +23,19 @@ export const createUser = async (req, res, next) => {
 export const getAllUser = async (req, res, next) => {
   try {
     const result = await getAllUserFormDB();
+    res.status(200).json({
+      success: true,
+      message: "Students is are created successfully",
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getThoseBloodDonner = async (req, res, next) => {
+  try {
+    const result = await getThoseBloodDonnerFromDB();
     res.status(200).json({
       success: true,
       message: "Students is are created successfully",
